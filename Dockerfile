@@ -5,5 +5,5 @@ RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo
 COPY src/ /var/www/html/
 RUN chmod -R 777 /var/www/html/storage/
 RUN cd /var/www/html
-RUN php artisan migrate
+# RUN php artisan migrate
 EXPOSE  8080
