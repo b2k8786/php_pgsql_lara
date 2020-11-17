@@ -1,22 +1,40 @@
 version: "3"
 services:
   simple_php:
-    build: .
+    build:
+      context: .
     image: simple_php_dock
     ports:
-      - 8080:80
+      - 8081:80
     depends_on:
       - db
-    links:
-      - db
+    environment:
+      # DATABASE_URL: postgres://postgres:qwerty@182.10.0.1/main
+      DEBUG: 'true'
+    networks:
+        default:
+            ipv4_address: 182.10.0.1
   db:
     image: postgres
-    restart: always
     environment:
-      POSTGRES_DB: postgres
+      POSTGRES_DB: main
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: qwerty
+    volumes:
+      - db:/var/lib/postgres
     ports:
-      - 5433:5432
+      - 8432:5432
+    networks:
+        default:
+            ipv4_address: 182.10.0.2
+        
+volumes:
+  db: {}
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 182.10.0.0/10
 
      
