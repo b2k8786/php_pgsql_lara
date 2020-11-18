@@ -11,9 +11,9 @@ services:
     environment:
       # DATABASE_URL: postgres://postgres:qwerty@182.10.0.1/main
       DEBUG: 'true'
-    networks:
-        default:
-            ipv4_address: 182.10.0.1
+    # networks:
+    #     default:
+    #         ipv4_address: 182.10.0.1
   db:
     image: postgres
     environment:
@@ -24,17 +24,17 @@ services:
       - db:/var/lib/postgres
     ports:
       - 5482:5432
-    networks:
-        default:
-            ipv4_address: 182.10.0.2
+    # networks:
+    #     default:
+    #         ipv4_address: 182.10.0.2
         
 volumes:
   db: {}
-networks:
-  default:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 182.10.0.0/10
+# networks:
+#   default:
+#     driver: bridge
+#     ipam:
+#       config:
+#         - subnet: 182.10.0.0/10
 
      
