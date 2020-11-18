@@ -5,7 +5,7 @@ services:
       context: .
     image: simple_php_dock
     ports:
-      - 8081:80
+      - 8080:8080
     depends_on:
       - db
     environment:
@@ -23,7 +23,7 @@ services:
     volumes:
       - db:/var/lib/postgres
     ports:
-      - 8432:5432
+      - 5482:5432
     networks:
         default:
             ipv4_address: 182.10.0.2
