@@ -13,7 +13,7 @@ services:
       DEBUG: 'true'
     networks:
         default:
-            ipv4_address: 182.10.0.8
+            ipv4_address: 182.10.0.1
   db:
     image: postgres
     environment:
@@ -26,7 +26,7 @@ services:
       - 5482:5432
     networks:
         default:
-            ipv4_address: 182.10.0.9
+            ipv4_address: 182.10.0.2
         
 volumes:
   db: {}
