@@ -1,9 +1,9 @@
 version: "3"
 services:
-  simple_php:
+  lara_php_pgsql:
     build:
       context: .
-    image: simple_php_dock
+    image: lara_php_pgsql
     ports:
       - 8888:80
     depends_on:
@@ -21,7 +21,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: qwerty
     volumes:
-      - db:/var/lib/postgres
+      - db:/home/docker/db/lara_php_pgsql
     ports:
       - 5482:5432
     networks:
